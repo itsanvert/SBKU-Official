@@ -59,7 +59,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="brand_quickfact-content font-2 text-center">
-                        <div class="brand_quickfact-count_value hanuman-bold counter" data-count="1118">0</div>
+                        <div class="brand_quickfact-count_value hanuman-bold counter" data-count="1453">0</div>
                         <div class="brand_quickfact-label hanuman-regular">{{ __('Total Students') }}</div>
                     </div>
                 </div>

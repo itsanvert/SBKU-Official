@@ -89,7 +89,7 @@
             <div class="row">
                 <div class="col-sm-8">
                     <div class="widget_black_studio_tinymce" id="black-studio-tinymce-4">
-                        <div class="copyright">Copyright 2023 - <a href="#">{{ __('SAMDECH PREAH MAHASANGHARAJAH BOUR KRY UNIVERSITY') }}</a></div>
+                        <div class="copyright">Copyright {{ date('Y') }} - <a href="#">{{ __('SAMDECH PREAH MAHASANGHARAJAH BOUR KRY UNIVERSITY') }}</a></div>
                     </div>
                 </div>
                 <div class="col-sm-4 ">

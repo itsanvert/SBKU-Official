@@ -5,63 +5,47 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Stephenjude\FilamentBlog\Models\Post;
 use App\Models\Page;
-use Illuminate\View\View;
-use Illuminate\Http\RedirectResponse;
 
 class PageController extends Controller
 {
-    /**
-     * Display the main page with latest posts
-     */
-    public function index(): View
-    {
-        $posts = Post::latest()->get();
-        return view('frontend.main', compact('posts'));
-    }
 
-    /**
-     * Display all posts
-     */
-    public function post(): View
-    {
-        $posts = Post::latest()->get();
-        return view('frontend.page.post', compact('posts'));
-    }
+   public function index()
+   {
+      $posts = Post::orderBy('id', 'desc')->get();
+      return view('frontend.main', compact('posts'));
+   }
 
-    /**
-     * Display a specific post
-     */
-    public function postDetail(Post $post): View
-    {
-        $posts = Post::latest()->get();
-        return view('frontend.page.postDetail', compact('post', 'posts'));
-    }
+   public function post()
+   {
+      $posts = Post::all();
+      return view('frontend.page.post', compact('posts'));
+   }
 
-    /**
-     * Display a specific page
-     */
-    public function pageDetail(Page $page): View
-    {
-        $pages = Page::latest()->get();
-        return view('frontend.page.pageDetail', compact('page', 'pages'));
-    }
+   public function postDetail($id)
+   {
+      $posts = Post::all();
+      $post = Post::find($id);
+      return view('frontend.page.postDetail', compact('post', 'posts'));
+   }
 
-    /**
-     * Display the contact page
-     */
-    public function contactUs(): View
-    {
-        $page = 'Contact Us';
-        $pages = Page::latest()->get();
+   public function pageDetail($id)
+   {
+      $pages = Page::all();
+      $page = Page::find($id);
+      return view('frontend.page.pageDetail', compact('page', 'pages'));
+   }
 
-        return view('frontend.page.contact', compact('page', 'pages'));
-    }
+   public function contactUs()
+   {
+      $page = 'Contact Us'; // or any dynamic value
+      $pages = []; // maybe Page::all() if using a model
 
-    /**
-     * Display the test mail view
-     */
-    public function test_view(): View
-    {
-        return view('frontend.mail.contact_mail');
-    }
+      return view('frontend.page.contact', compact('page', 'pages'));
+   }
+   public function test_view()
+   {
+
+
+      return view('frontend.mail.contact_mail');
+   }
 }

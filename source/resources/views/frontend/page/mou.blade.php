@@ -36,7 +36,7 @@
         display: block;
     }
     .mou-partner-logo img {
-        max-height: 80px;
+        max-height: 90px;
         width: auto;
         max-width: 100%;
         margin-bottom: 1rem;
@@ -155,6 +155,16 @@
                             <p class="hanuman-regular">
                                 <span class="university-name">{{ __('DHARMA DRUM INSTITUTE OF LIBERAL ARTS') }}</span><br>
                                 <span class="country-name">{{ __('TAIWAN') }}</span>
+                            </p>
+                        </a>
+                    </div>
+                   
+                    <div class="col-6 col-sm-4 col-md-3 mou-partner-logo">
+                        <a href="https://www.jssc.edu.cn" target="_blank" rel="noopener noreferrer">
+                            <img src="{{ asset('assets/img/mou-university-logo/JiangSu Shipping College.png') }}" alt="DILA Logo" class="img-fluid">
+                            <p class="hanuman-regular">
+                                <span class="university-name">{{ __('JiangSu Shipping College') }}</span><br>
+                                <span class="country-name">{{ __('Republic of China') }}</span>
                             </p>
                         </a>
                     </div>

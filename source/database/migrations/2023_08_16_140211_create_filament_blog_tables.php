@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class () extends Migration {
+return new class() extends Migration {
     /**
      * Run the migrations.
      *
@@ -46,6 +46,18 @@ return new class () extends Migration {
             $table->date('published_at')->nullable();
             $table->timestamps();
         });
+
+        Schema::create('events', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('banner')->nullable();
+            $table->date('date');
+            $table->time('time_start');
+            $table->time('time_end');
+            $table->string('location');
+            $table->string('read_more_url')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -58,5 +70,6 @@ return new class () extends Migration {
         Schema::dropIfExists('blog_categories');
         Schema::dropIfExists('blog_authors');
         Schema::dropIfExists('blog_posts');
+        Schema::dropIfExists('events');
     }
 };

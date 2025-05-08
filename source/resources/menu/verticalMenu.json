@@ -186,6 +186,12 @@
                     "slug": "general-information"
                 },
                 {
+                    "url": "career",
+                    "name": "career",
+                    "title": "career",
+                    "slug": "career"
+                },
+                {
                     "url": "#",
                     "name": "International Education Center",
                     "title": "International Education Center",

@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'asset_url' => 'http://localhost/assets',
+    'asset_url' => 'http://localhost/sbku',
 
     /*
     |--------------------------------------------------------------------------

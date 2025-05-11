@@ -15,43 +15,38 @@
 
 
 {{-- Blog Post Grid --}}
-<section class="sabbbi-section home-info mt_10">
-  
-  <div class="container">
-    <div class="row g-4">
-      @foreach ($posts as $key => $value)
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex">
-          <article class="sabbi-thumlinepost-card shadow-sm rounded overflow-hidden w-100 d-flex flex-column">
-            {{-- Thumbnail --}}
-            <figure class="sabbi-thumlinepost-card-figure position-relative">
-              <img src="{{ asset("source/storage/app/public/{$value->banner}") }}"
-                   alt="post banner"
-                   class="img-fluid w-100"
-                   style="height: 180px; object-fit: cover;">
-              <div class="overlay position-absolute top-0 start-0 w-100 h-100 bg-dark"></div>
-            </figure>
+<section class="news-section-pro">
+    <div class="news-container">
+        <h2 class="news-title"></h2>
+        <div class="news-grid">
+            @foreach ($posts as $key => $value)
+                <div class="news-card">
+                    <img src="{{ asset("source/storage/app/public/{$value->banner}") }}"
+                          alt="{{ app()->getLocale() == 'kh' ? $value->title_kh : $value->title_en }}"
+                          class="news-image">
 
-            {{-- Meta Info --}}
-            <div class="sabbi-thumlinepost-card-meta p-3 d-flex flex-column flex-grow-1">
-              <h2 class="meta-title hanuman-bold" style="text-align: justify;">
-                {{ app()->getLocale() == 'kh' ? $value->title_kh : $value->title_en }}
-              </h2>
-              <p class="meta-text hanuman-regular text-muted flex-grow-1" style="text-align: justify; overflow: hidden;">
-                {!! app()->getLocale() == 'kh' ? $value->excerpt_kh : $value->excerpt_en !!}
-              </p>
-              <a href="{{ url("/post-detail&$value->id") }}" class="btn btn-primary btn-sm mt-2 w-100 hanuman-regular">
-                {{ __('Read More') }}
-              </a>
-            </div>
-          </article>
+                    <div class="news-content">
+                        <div class="news-title-text">
+                            {{ app()->getLocale() == 'kh' ? $value->title_kh : $value->title_en }}
+                        </div>
+                        <div class="news-meta">
+                            <i class="far fa-calendar-alt"></i>
+                            {{ $value->created_at->format('d M Y') }}
+                        </div>
+                        <div class="news-excerpt">
+                            {!! app()->getLocale() == 'kh' ? $value->excerpt_kh : $value->excerpt_en !!}
+                        </div>
+                        <div class="news-readmore">
+                            <a href="{{ url("/post-detail&$value->id") }}" class="news-btn">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
-      @endforeach
     </div>
-
-    {{-- Conference Section --}}
-    @include('frontend.conference')
-  </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </section>
+
 
 {{-- Additional Sections --}}
 @include('frontend.statistic')
@@ -179,6 +174,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+      border: 2px solid #002855;
 }
 
 .news-card:hover {
@@ -246,23 +242,21 @@
 }
 
 .news-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.75rem 1.5rem;
-    background: #2563eb;
-    color: #ffffff;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
+     background: #fff;
+            color: #d72638;
+            border: 1.5px solid #d72638;
+            border-radius: 4px;
+            padding: 0.6rem 1.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
+            cursor: pointer;
+            text-decoration: none;
 }
 
 .news-btn:hover {
-    background: #1d4ed8;
-    transform: translateX(5px);
+   background: #d72638;
+            color: #fff;
 }
 
 @media (max-width: 1024px) {
@@ -293,31 +287,3 @@
 }
 </style>
 
-<section class="news-section-pro">
-    <div class="news-container">
-        <h2 class="news-title">Latest News</h2>
-        <div class="news-grid">
-            @foreach ($posts as $key => $value)
-                <div class="news-card">
-                    <img src="{{ asset("source/storage/app/public/{$value->banner}") }}" alt="post banner" class="news-image">
-                    <div class="news-content">
-                        <div class="news-title-text">
-                            {{ app()->getLocale() == 'kh' ? $value->title_kh : $value->title_en }}
-                        </div>
-                        <div class="news-meta">
-                            <i class="far fa-calendar-alt"></i>
-                            {{ $value->created_at->format('d M Y') }}
-                        </div>
-                        <div class="news-excerpt">
-                            {!! app()->getLocale() == 'kh' ? $value->excerpt_kh : $value->excerpt_en !!}
-                        </div>
-                        <div class="news-readmore">
-                            <a href="{{ url("/post-detail&$value->id") }}" class="news-btn">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</section>

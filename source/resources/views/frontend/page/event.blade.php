@@ -54,7 +54,7 @@ $events = [
 <div class="aupp-events-section-pro">
     <style>
         .aupp-events-section-pro {
-            background: #fff;
+            background: #ffffff;
             padding: 60px 0 80px 0;
         }
         .aupp-events-container {
@@ -78,7 +78,7 @@ $events = [
             justify-items: center;
         }
         .aupp-event-card {
-            background: #fff;
+            background: #ffffff;
             border: 2px solid #002855;
             border-radius: 0;
             width: 340px;
@@ -142,7 +142,7 @@ $events = [
             justify-content: center;
         }
         .aupp-event-btn {
-            background: #fff;
+            background: #ffffff;
             color: #d72638;
             border: 1.5px solid #d72638;
             border-radius: 4px;

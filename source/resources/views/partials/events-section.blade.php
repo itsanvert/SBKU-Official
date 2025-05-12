@@ -3,8 +3,6 @@ use App\Models\Event;
 $events = Event::orderBy('date', 'desc')->get();
 @endphp
 
-
-
 <div class="aupp-events-section-pro">
     <style>
         .aupp-events-section-pro {
@@ -161,25 +159,25 @@ $events = Event::orderBy('date', 'desc')->get();
         <div class="aupp-events-grid" id="eventsGrid">
             @foreach($events as $index => $event)
             <div class="aupp-event-card" data-index="{{ $index }}" style="display: {{ $index < 3 ? 'flex' : 'none' }};">
-                <img src="{{ $event['image'] }}" alt="{{ $event['title'] }}" class="aupp-event-image">
+                <img src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->title }}" class="aupp-event-image">
                 <div class="aupp-event-content">
-                    <div class="aupp-event-title">{!! $event['title'] !!}</div>
+                    <div class="aupp-event-title">{!! $event->title !!}</div>
                     <div class="aupp-event-meta">
                         <div class="aupp-event-meta-item">
                             <i class="fa fa-calendar"></i>
-                            <span>Date: {{ $event['date'] }}</span>
+                            <span>Date: {{ $event->date->format('F j, Y') }}</span>
                         </div>
                         <div class="aupp-event-meta-item">
                             <i class="fa fa-clock"></i>
-                            <span>Time: {{ $event['time'] }}</span>
+                            <span>Time: {{ $event->time }}</span>
                         </div>
                         <div class="aupp-event-meta-item">
                             <i class="fa fa-map-marker-alt"></i>
-                            <span>Location: {{ $event['location'] }}</span>
+                            <span>Location: {{ $event->location }}</span>
                         </div>
                     </div>
                     <div class="aupp-event-readmore">
-                        <a href="{{ url("/event/{$event['id']}") }}" class="aupp-event-btn">Read More</a>
+                        <a href="{{ route('events.show', $event->id) }}" class="aupp-event-btn">Read More</a>
                     </div>
                 </div>
             </div>
@@ -223,3 +221,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+

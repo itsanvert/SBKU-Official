@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Stephenjude\FilamentBlog\Models\Post;
 use App\Models\Page;
 
+
 class PageController extends Controller
 {
 
@@ -48,4 +49,10 @@ class PageController extends Controller
 
       return view('frontend.mail.contact_mail');
    }
+   public function events()
+{
+    $events = Event::latest()->paginate(10); // Or ->get() if no pagination
+
+    return view('frontend.page.event', compact('events'));
+}
 }

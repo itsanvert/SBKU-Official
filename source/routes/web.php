@@ -25,15 +25,10 @@ Route::post('/post-message', [ContactFormController::class, 'post_message'])->na
 
 
 
-
-
+// routes/web.php
 Route::get('/events', [EventController::class, 'index'])->name('events.index');
-Route::get('/event/{id}', [EventController::class, 'show'])->name('events.show');
-// Events Routes - Custom Controller
-Route::get('/events', [PageController::class, 'events'])->name('events.index');
-Route::get('/events/{id}', [PageController::class, 'eventDetail'])->name('events.detail');
-Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
-Route::get('/events/{event}/edit', [EventController::class, 'edit'])->name('events.edit');
+Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
+
 
 
 // Career Routes

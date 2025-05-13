@@ -8,21 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     use HasFactory;
-    
+
+    // Add 'title' to the fillable property
     protected $fillable = [
-        'title', 'image', 'date', 'time', 'location',
+        'title',
+        // Add other fields that you want to allow mass assignment
     ];
-    
-    // Add proper date casting for the date field
-    protected $casts = [
-        'date' => 'date',
-    ];
-    
-    // Add accessor to get the full image URL
-    public function getImageUrlAttribute()
-    {
-        return $this->image ? asset('storage/' . $this->image) : null;
-    }
 }
-
-

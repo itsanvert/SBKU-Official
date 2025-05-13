@@ -9,7 +9,13 @@ use Illuminate\Support\Facades\Blade;
 class AppServiceProvider extends ServiceProvider
 {
    // Add this to your AppServiceProvider (app/Providers/AppServiceProvider.php) in the boot() method:
-
+/**
+     * Register any application services.
+     */
+    public function register(): void
+    {
+        //
+    }
 
 public function boot()
 {

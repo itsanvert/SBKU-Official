@@ -13,8 +13,10 @@ Route::get('lang/{locale}', [LanguageController::class, 'swap']);
 // Page Routes
 Route::get('/', [PageController::class, 'index']);
 Route::get('/post', [PageController::class, 'post']);
-Route::get('/post-detail/{id}', [PageController::class, 'postDetail'])->name('post-detail');
-Route::get('/page-detail/{id}', [PageController::class, 'pageDetail'])->name('page-detail');
+Route::get('/post-detail&{id}', [PageController::class, 'postDetail']);
+Route::get('/page-detail&{id}', [PageController::class, 'pageDetail']);
+// Route::get('/post-detail/{id}', [PageController::class, 'postDetail'])->name('post-detail');
+// Route::get('/page-detail/{id}', [PageController::class, 'pageDetail'])->name('page-detail');
 Route::get('/contactUs', [PageController::class, 'contactUs']);
 Route::get('/test_view', [PageController::class, 'test_view']);
 

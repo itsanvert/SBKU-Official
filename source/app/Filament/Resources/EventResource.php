@@ -7,14 +7,14 @@ use App\Models\Event;
 use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TimePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
- use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\TimePicker;
-use Filament\Forms\Components\FileUpload;
 
 class EventResource extends Resource
 {
@@ -22,28 +22,36 @@ class EventResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
-
-
-public static function form(Form $form): Form
-{
-    return $form
-        ->schema([
-            TextInput::make('title')->required()->maxLength(255),
-            DatePicker::make('day')->required(),
-            TimePicker::make('time')->required(),
-            TextInput::make('location')->required(),
-            Textarea::make('description')->rows(5),
-            FileUpload::make('image')->image()->directory('events'),
-        ]);
-}
-
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                TextInput::make('title')
+                    ->required()
+                    ->maxLength(255),
+                DatePicker::make('date') // changed from 'day' to 'date'
+                    ->required(),
+                TimePicker::make('time'),
+                TextInput::make('location')
+                    ->maxLength(255),
+                Textarea::make('description')
+                    ->rows(5),
+                FileUpload::make('image')
+                    ->image()
+                    ->directory('events'),
+            ]);
+    }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
                 TextColumn::make('title')->sortable()->searchable(),
-                TextColumn::make('day')->date()->sortable(),
+           
+                TextColumn::make('date')->date()->sortable(), // changed from 'day' to 'date'
+              
+                
+               
             ])
             ->filters([
                 //

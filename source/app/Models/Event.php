@@ -9,9 +9,19 @@ class Event extends Model
 {
     use HasFactory;
 
-    // Add 'title' to the fillable property
+    // Allow mass assignment for these fields
     protected $fillable = [
         'title',
-        // Add other fields that you want to allow mass assignment
+        'date',
+        'time',
+        'location',
+        'image',
+        'description',
+    ];
+
+    // Cast date and time fields properly
+    protected $casts = [
+        'date' => 'date',
+        'time' => 'datetime:H:i',
     ];
 }

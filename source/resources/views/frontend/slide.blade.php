@@ -4,6 +4,33 @@
         <div class="seq seq--kawsa" id="sequence">
             <div class="seq-screen">
                 <ul class="seq-canvas font-hanuman">
+                      {{-- Slide 10 - MOU - HELP UNI --}}
+                    <li class="seq-step2" id="step2" style="background:url({{ asset('assets/img/slider/slide_img13.jpg') }});background-repeat: no-repeat;background-size: cover;">
+                        <div class="bg-blend"></div>
+                        <div class="seq-content">
+                            <h3 class="seq-title font-2 tt_up hanuman-regular" data-seq="" style="font-size: 15px;">
+                                {{ __('Slider_10') }}
+                            </h3>
+                        </div>
+                    </li>
+                     {{-- Slide 11 - MOU - Jiang Su - College --}}
+                    <li class="seq-step2" id="step2" style="background:url({{ asset('assets/img/slider/slide_img14.jpg') }});background-repeat: no-repeat;background-size: cover;">
+                        <div class="bg-blend"></div>
+                        <div class="seq-content">
+                            <h3 class="seq-title font-2 tt_up hanuman-regular" data-seq="" style="font-size: 15px;">
+                                {{ __('Slider_11') }}
+                            </h3>
+                        </div>
+                    </li>
+                     {{-- Slide 12 - MOU - Enviromental --}}
+                    <li class="seq-step2" id="step2" style="background:url({{ asset('assets/img/slider/slide_img15.jpg') }});background-repeat: no-repeat;background-size: cover;">
+                        <div class="bg-blend"></div>
+                        <div class="seq-content">
+                            <h3 class="seq-title font-2 tt_up hanuman-regular" data-seq="" style="font-size: 15px;">
+                                {{ __('Slider_12') }}
+                            </h3>
+                        </div>
+                    </li>
                     {{-- Slide 1 --}}
                     <li class="seq-step3" id="step3" style="background:url({{ asset('assets/img/slider/slide_img10.jpg') }});background-repeat: no-repeat;background-size: cover;">
                         <div class="bg-blend"></div>
@@ -93,6 +120,17 @@
                             </h3>
                         </div>
                     </li>
+                     {{-- Slide 9 - Computer Lab --}}
+                    <li class="seq-step2" id="step2" style="background:url({{ asset('assets/img/slider/slide_img12.jpg') }});background-repeat: no-repeat;background-size: cover;">
+                        <div class="bg-blend"></div>
+                        <div class="seq-content">
+                            <h3 class="seq-title font-2 tt_up hanuman-regular" data-seq="" style="font-size: 15px;">
+                                {{ __('Slider_9') }}
+                            </h3>
+                        </div>
+                    </li>
+                   
+                    
                 </ul>
 
                 <div class="sec-navigate-wrap pos-y_center">

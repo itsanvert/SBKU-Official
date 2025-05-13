@@ -149,15 +149,17 @@
                         </a>
                     </div>
                     {{-- Dharma Drum Institute of Liberal Arts --}}
-                    <div class="col-6 col-sm-4 col-md-3 mou-partner-logo">
-                        <a href="https://www-en.dila.edu.tw/" target="_blank" rel="noopener noreferrer">
-                            <img src="{{ asset('assets/img/mou-university-logo/Dharma Drum Institute of Liberal Art.png') }}" alt="DILA Logo" class="img-fluid">
-                            <p class="hanuman-regular">
-                                <span class="university-name">{{ __('DHARMA DRUM INSTITUTE OF LIBERAL ARTS') }}</span><br>
-                                <span class="country-name">{{ __('TAIWAN') }}</span>
-                            </p>
-                        </a>
-                    </div>
+                   <div class="col-6 col-sm-4 col-md-3 mou-partner-logo">
+    <a href="https://www-en.dila.edu.tw/" target="_blank" rel="noopener noreferrer">
+        <img src="{{ asset('assets/img/mou-university-logo/Dharma Drum Institute of Liberal Art.png') }}"
+             alt="DILA Logo" class="img-fluid" style="transform: scale(1.3); max-width: 100%; height: auto;">
+        <p class="hanuman-regular">
+            <span class="university-name">{{ __('DHARMA DRUM INSTITUTE OF LIBERAL ARTS') }}</span><br>
+            <span class="country-name">{{ __('TAIWAN') }}</span>
+        </p>
+    </a>
+</div>
+
                    
                     <div class="col-6 col-sm-4 col-md-3 mou-partner-logo">
                         <a href="https://www.jssc.edu.cn" target="_blank" rel="noopener noreferrer">
@@ -165,6 +167,15 @@
                             <p class="hanuman-regular">
                                 <span class="university-name">{{ __('JiangSu Shipping College') }}</span><br>
                                 <span class="country-name">{{ __('Republic of China') }}</span>
+                            </p>
+                        </a>
+                    </div>
+                     <div class="col-6 col-sm-4 col-md-3 mou-partner-logo">
+                        <a href="https://help.edu.my/" target="_blank" rel="noopener noreferrer">
+                            <img src="{{ asset('assets/img/mou-university-logo/help-university-logo.png') }}" alt="DILA Logo" class="img-fluid">
+                            <p class="hanuman-regular">
+                                <span class="university-name">{{ __('Help University') }}</span><br>
+                                <span class="country-name">{{ __('MALAYSIA') }}</span>
                             </p>
                         </a>
                     </div>

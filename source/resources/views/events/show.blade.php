@@ -1,6 +1,5 @@
-@extends('layouts.app')
 
-@section('content')
+
 <div class="container">
     <a href="{{ route('events.index') }}" class="btn btn-secondary mb-4">← Back to Events</a>
     <div class="card">
@@ -18,4 +17,4 @@
         </div>
     </div>
 </div>
-@endsection
+

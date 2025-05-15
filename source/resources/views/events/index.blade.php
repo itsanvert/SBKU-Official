@@ -1,4 +1,4 @@
-@extends('layouts.app')
+
 
 @section('content')
 <div class="container">
@@ -7,10 +7,10 @@
         @foreach($events as $event)
         <div class="col-md-4 mb-4">
             <div class="card h-100">
-           
-                <img src="{{ asset('storage/events/VRNw0hyT4GGw9YntQqEkFudjqsT6lJ-metaNDIyMiB4IDExMzEgQi5qcGc=-.jpg') }}" alt="Event Image">
+                @if($event->image)
+              <img src="{{ asset('storage/app/events/' . $event->image) }}" class="card-img-top" alt="{{ $event->title }}">
 
-       
+                @endif
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">{{ $event->title }}</h5>
                     <p class="card-text"><strong>Date:</strong> {{ \Carbon\Carbon::parse($event->date)->format('F d, Y') }}</p>

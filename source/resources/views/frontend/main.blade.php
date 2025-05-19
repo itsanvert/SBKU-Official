@@ -8,7 +8,7 @@
   </div>
 </section>
 
-  {{-- @include('events.index') --}}
+  @include('frontend.page.event')
 
 
 

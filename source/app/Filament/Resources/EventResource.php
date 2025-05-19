@@ -15,6 +15,7 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ImageColumn; // Added for ImageColumn
 
 class EventResource extends Resource
 {
@@ -46,12 +47,18 @@ class EventResource extends Resource
     {
         return $table
             ->columns([
+                ImageColumn::make('image'), // Column to display the image
                 TextColumn::make('title')->sortable()->searchable(),
-           
                 TextColumn::make('date')->date()->sortable(), // changed from 'day' to 'date'
-              
+                TextColumn::make('time')
+                    ->time() // Formats the time
+                    ->sortable(),
+                TextColumn::make('location')
+                    ->sortable()
+                    ->searchable(),
                 
-               
+                // If you want to display a snippet of the description, you could add:
+                // TextColumn::make('description')->limit(50)->tooltip(fn ($record) => $record->description),
             ])
             ->filters([
                 //

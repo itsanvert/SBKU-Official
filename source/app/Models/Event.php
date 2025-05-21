@@ -2,26 +2,35 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    use HasFactory;
+   protected $fillable = [
+    'title', 'slug', 'date', 'time', 'location', 'image', 'description',
+    'registration_required', 'max_participants', 'registration_deadline', 'schedule'
+];
 
-    // Allow mass assignment for these fields
-    protected $fillable = [
-        'title',
-        'date',
-        'time',
-        'location',
-        'image',
-        'description',
-    ];
+protected $casts = [
+    'date' => 'datetime',
+    'time' => 'datetime:H:i',
+    'registration_required' => 'boolean',
+    'registration_deadline' => 'datetime',
+    'schedule' => 'array',
+];
+    public function getRouteKeyName()
+    {
+      
+        // Use ID for Filament admin routes and slug for frontend
+        return request()->is('admin/*') ? 'id' : 'slug';
+    }
+    public function show(Event $event)
+{
+    return view('events.show', compact('event'));
+}
+public function registrations()
+{
+    return $this->hasMany(EventRegistration::class);
+}
 
-    // Cast date and time fields properly
-    protected $casts = [
-        'date' => 'date',
-        'time' => 'datetime:H:i',
-    ];
 }

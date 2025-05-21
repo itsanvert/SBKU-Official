@@ -8,11 +8,12 @@
   </div>
 </section>
 
-  @include('frontend.page.event')
+{{-- Section with Event  --}}
+  @include('events.index')
 
 
 
-{{-- Section with Hero Image (optional) --}}
+
 
 
 {{-- Blog Post Grid --}}

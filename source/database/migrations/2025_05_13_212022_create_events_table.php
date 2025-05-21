@@ -11,15 +11,21 @@ class CreateEventsTable extends Migration
     public function up()
     {
         Schema::create('events', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->date('date');
-            $table->time('time')->nullable();
-            $table->string('location')->nullable();
-            $table->string('image')->nullable();
-            $table->text('description')->nullable();
-            $table->timestamps();
-        });
+    $table->id();
+    $table->string('title');
+    $table->string('slug')->unique();
+    $table->dateTime('date');
+    $table->time('time');
+    $table->string('location');
+    $table->string('image');
+    $table->text('description');
+    $table->boolean('registration_required')->default(false);
+    $table->integer('max_participants')->nullable();
+    $table->dateTime('registration_deadline')->nullable();
+    $table->json('schedule')->nullable();
+    $table->timestamps();
+    $table->date('date'); // Instead of dateTime
+});
     }
 
     public function down()

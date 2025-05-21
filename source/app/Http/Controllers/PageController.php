@@ -51,8 +51,8 @@ class PageController extends Controller
    }
    public function events()
 {
-    $events = Event::latest()->paginate(10); // Or ->get() if no pagination
+    $events = Event::all();
 
-    return view('frontend.page.event', compact('events'));
+    return view('events.index', compact('events'));
 }
 }

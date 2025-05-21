@@ -25,10 +25,10 @@ Route::post('/post-message', [ContactFormController::class, 'post_message'])->na
 
 
 
-// routes/web.php
-
 Route::get('/events', [EventController::class, 'index'])->name('events.index');
-Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
+// To this (Laravel 8+ syntax):
+Route::get('/event/{id}', [EventController::class, 'show'])->name('event.show');
+Route::post('/events/{event}/register', [EventController::class, 'register'])->name('events.register');
 
 
 

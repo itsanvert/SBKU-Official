@@ -33,6 +33,14 @@ return [
         'root' => storage_path('app/livewire-tmp'), // Make sure this path exists
         'visibility' => 'public', // Important for web access
     ],
+    'disks' => [
+    'public' => [
+        'driver' => 'local',
+        'root' => storage_path('app/public'),
+        'url' => env('APP_URL').'/storage',
+        'visibility' => 'public',
+    ],
+],
 
 
         'public' => [

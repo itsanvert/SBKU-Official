@@ -3,10 +3,9 @@ use App\Models\Event;
 $events = Event::orderBy('date', 'desc')->get();
 @endphp
 
-
-
 <div class="aupp-events-section-pro">
-    <style>
+   <style>
+        /* CSS styles remain unchanged */
         .aupp-events-section-pro {
             background: #ffffff;
             padding: 60px 0 80px 0;
@@ -161,23 +160,24 @@ $events = Event::orderBy('date', 'desc')->get();
         <div class="aupp-events-grid" id="eventsGrid">
             @foreach($events as $index => $event)
             <div class="aupp-event-card" data-index="{{ $index }}" style="display: {{ $index < 3 ? 'flex' : 'none' }};">
-                {{-- Check generated URL --}}
-<pre>{{ Storage::disk('livewire-tmp')->url($event['image']) }}</pre>
-                <img src="{{ Storage::disk('livewire-tmp')->url($event['image']) }}" alt="Event image">
+
+                {{-- Use the accessor method from the Event model --}}
+                <img src="{{ $event->image_url }}" alt="{{ $event->title }}" class="aupp-event-image">
+
                 <div class="aupp-event-content">
-                    <div class="aupp-event-title">{!! $event['title'] !!}</div>
+                    <div class="aupp-event-title">{!! $event->title !!}</div>
                     <div class="aupp-event-meta">
                         <div class="aupp-event-meta-item">
                             <i class="fa fa-calendar"></i>
-                            <span>Date: {{ $event['date'] }}</span>
+                            <span>Date: {{ $event->date->format('Y-m-d') }}</span>
                         </div>
                         <div class="aupp-event-meta-item">
                             <i class="fa fa-clock"></i>
-                            <span>Time: {{ $event['time'] }}</span>
+                            <span>Time: {{ $event->time->format('H:i') }}</span>
                         </div>
                         <div class="aupp-event-meta-item">
                             <i class="fa fa-map-marker-alt"></i>
-                            <span>Location: {{ $event['location'] }}</span>
+                            <span>Location: {{ $event->location }}</span>
                         </div>
                     </div>
                     <div class="aupp-event-readmore">
@@ -187,6 +187,7 @@ $events = Event::orderBy('date', 'desc')->get();
             </div>
             @endforeach
         </div>
+        {{-- View More button remains the same --}}
         <div class="aupp-events-viewmore">
             <button type="button" id="viewMoreBtn" class="aupp-viewmore-btn">
                 <i class="fa fa-arrow-right"></i>
@@ -196,32 +197,3 @@ $events = Event::orderBy('date', 'desc')->get();
     </div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const cards = document.querySelectorAll('.aupp-event-card');
-    const btn = document.getElementById('viewMoreBtn');
-    const btnText = document.getElementById('viewMoreText');
-    let shown = 3;
-    const step = 3;
-    btn.addEventListener('click', function() {
-        let next = shown + step;
-        for (let i = shown; i < next && i < cards.length; i++) {
-            cards[i].style.display = 'flex';
-        }
-        shown = next;
-        if (shown >= cards.length) {
-            btn.classList.add('disabled');
-            btn.disabled = true;
-            btnText.textContent = 'No more events';
-            btn.querySelector('i').className = 'fa fa-check';
-        }
-    });
-    if (cards.length <= shown) {
-        btn.classList.add('disabled');
-        btn.disabled = true;
-        btnText.textContent = 'No more events';
-        btn.querySelector('i').className = 'fa fa-check';
-    }
-});
-</script>

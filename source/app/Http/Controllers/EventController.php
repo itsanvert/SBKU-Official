@@ -9,9 +9,12 @@ class EventController extends Controller
 {
     public function index()
     {
+        // In your controller
+$filename = Str::slug($request->title).'.'.$request->file('image')->extension();
+$path = $request->file('image')->storeAs('events', $filename, 'public');
         $path = $request->file('image')->storeAs(
-    'events', 
-    'filename.jpg', 
+    'events',
+    'filename.jpg',
     'public'  // Your permanent storage disk
 );
         $events = Event::query()
@@ -24,10 +27,10 @@ class EventController extends Controller
             'now' => now()
         ]);
     }
-    
+
     public function show($id)
 {
-   
+
     $event = Event::findOrFail($id);
     return view('events.show', compact('event'));
 }

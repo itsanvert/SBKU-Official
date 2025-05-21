@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\EventController;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Storage;
 // Language Routes
 Route::get('lang/{locale}', [LanguageController::class, 'swap']);
 
@@ -19,7 +20,10 @@ Route::get('/page-detail&{id}', [PageController::class, 'pageDetail']);
 // Route::get('/page-detail/{id}', [PageController::class, 'pageDetail'])->name('page-detail');
 Route::get('/contactUs', [PageController::class, 'contactUs']);
 Route::get('/test_view', [PageController::class, 'test_view']);
-
+// routes/web.php
+Route::get('/test_image', function() {
+    return Storage::disk('public')->response('events/test.jpg');
+});
 // Contact Form Route
 Route::post('/post-message', [ContactFormController::class, 'post_message'])->name('post-message');
 
@@ -30,6 +34,16 @@ Route::get('/events', [EventController::class, 'index'])->name('events.index');
 Route::get('/event/{id}', [EventController::class, 'show'])->name('event.show');
 Route::post('/events/{event}/register', [EventController::class, 'register'])->name('events.register');
 
+
+Route::get('/preview-file/{filename}', function ($filename) {
+    $path = Storage::disk('livewire-tmp')->path($filename);
+
+    if (!file_exists($path)) {
+        abort(404);
+    }
+
+    return response()->file($path);
+})->name('livewire.preview-file');
 
 
 // Career Routes

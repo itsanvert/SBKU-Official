@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Filament\Facades\Filament;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Str;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,5 +30,9 @@ public function boot()
             'Settings',
         ]);
     });
+    Str::macro('cleanFileName', function ($name) {
+        return preg_replace('/[^a-zA-Z0-9\-\._]/', '', Str::slug($name));
+    });
+
 }
 }

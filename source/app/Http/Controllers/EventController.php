@@ -9,6 +9,11 @@ class EventController extends Controller
 {
     public function index()
     {
+        $path = $request->file('image')->storeAs(
+    'events', 
+    'filename.jpg', 
+    'public'  // Your permanent storage disk
+);
         $events = Event::query()
             ->where('date', '>=', now()->startOfDay())
             ->orderBy('date')
@@ -22,7 +27,9 @@ class EventController extends Controller
     
     public function show($id)
 {
+   
     $event = Event::findOrFail($id);
     return view('events.show', compact('event'));
 }
+
 }

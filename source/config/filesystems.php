@@ -27,14 +27,13 @@ return [
     | Supported Drivers: "local", "ftp", "sftp", "s3"
     |
     */
+'disks' => [
+    'livewire-tmp' => [
+        'driver' => 'local',
+        'root' => storage_path('app/livewire-tmp'), // Make sure this path exists
+        'visibility' => 'public', // Important for web access
+    ],
 
-    'disks' => [
-
-        'local' => [
-            'driver' => 'local',
-            'root' => storage_path('app'),
-            'throw' => false,
-        ],
 
         'public' => [
             'driver' => 'local',

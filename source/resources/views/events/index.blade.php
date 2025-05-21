@@ -161,7 +161,9 @@ $events = Event::orderBy('date', 'desc')->get();
         <div class="aupp-events-grid" id="eventsGrid">
             @foreach($events as $index => $event)
             <div class="aupp-event-card" data-index="{{ $index }}" style="display: {{ $index < 3 ? 'flex' : 'none' }};">
-                <img src="{{ $event['image'] }}" alt="{{ $event['title'] }}" class="aupp-event-image">
+                {{-- Check generated URL --}}
+<pre>{{ Storage::disk('livewire-tmp')->url($event['image']) }}</pre>
+                <img src="{{ Storage::disk('livewire-tmp')->url($event['image']) }}" alt="Event image">
                 <div class="aupp-event-content">
                     <div class="aupp-event-title">{!! $event['title'] !!}</div>
                     <div class="aupp-event-meta">

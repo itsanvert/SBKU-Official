@@ -14,7 +14,7 @@
   }
 </style>
 
-<section class="deff-timeline-section">
+<section class="deff-timeline-section" style="border: re">
         <div class="container">
             <div class="auth-deff_timeline_timeline-segment">
                 <ul class="auth-deff_timeline list-unstyled">

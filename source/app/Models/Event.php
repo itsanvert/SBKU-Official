@@ -9,22 +9,24 @@ class Event extends Model
 {
    protected $fillable = [
     'title', 'slug', 'date', 'time', 'location', 'image', 'description',
-    'registration_required', 'max_participants', 'registration_deadline', 'schedule'
    ];
 
    protected $casts = [
        'date' => 'datetime',
        'time' => 'datetime:H:i',
-       'registration_required' => 'boolean',
-       'registration_deadline' => 'datetime',
-       'schedule' => 'array',
    ];
+   protected static function booted()
+{
+    static::creating(function ($event) {
+        $event->slug = \Str::slug($event->title);
+    });
+}
+
 
    public function getRouteKeyName()
-   {
-       // Use ID for Filament admin routes and slug for frontend
-       return request()->is('admin/*') ? 'id' : 'slug';
-   }
+{
+    return app()->runningInConsole() || request()->is('admin/*') ? 'id' : 'slug';
+}
 
    public function show(Event $event)
    {
@@ -48,4 +50,7 @@ class Event extends Model
            ? asset('source/storage/app/public/' . $this->image)
            : asset('default-event-image.jpg');
    }
+
+
+
 }

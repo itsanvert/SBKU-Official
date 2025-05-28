@@ -2,262 +2,174 @@
     <div class="news-container">
         <h2 class="news-title">{{ __('News') }}</h2>
         <div class="news-grid">
-            @foreach ($posts as $key => $value)
+            @foreach ($posts as $value)
                 <div class="news-card">
-                    <img src="{{ asset("source/storage/app/public/{$value->banner}") }}"
-                          alt="{{ app()->getLocale() == 'kh' ? $value->title_kh : $value->title_en }}"
-                          class="news-image">
-
+                    <div class="image-wrapper">
+                        <img src="{{ asset("source/storage/app/public/{$value->banner}") }}"
+                             alt="{{ app()->getLocale() == 'kh' ? $value->title_kh : $value->title_en }}"
+                             class="news-image">
+                    </div>
                     <div class="news-content">
-                        <div class="news-title-text">
+                        <h3 class="news-title-text">
                             {{ app()->getLocale() == 'kh' ? $value->title_kh : $value->title_en }}
-                        </div>
+                        </h3>
                         <div class="news-meta">
                             <i class="far fa-calendar-alt"></i>
                             {{ $value->created_at->format('d M Y') }}
                         </div>
-                        <div class="news-excerpt">
+                        <p class="news-excerpt">
                             {!! app()->getLocale() == 'kh' ? $value->excerpt_kh : $value->excerpt_en !!}
-                        </div>
-                        <div class="news-readmore">
-                            <a href="{{ url("/post-detail&$value->id") }}" class="news-btn">Read More</a>
-                        </div>
+                        </p>
+                        <a href="{{ url("/post-detail&$value->id") }}" class="news-btn">Read More</a>
                     </div>
                 </div>
             @endforeach
         </div>
     </div>
+
+    {{-- Fonts and Icons --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </section>
+
 <style>
-  .sabbi-thumlinepost-card {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  .sabbi-thumlinepost-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  }
-
-  .sabbi-thumlinepost-card-figure {
-    overflow: hidden;
-    position: relative;
-  }
-
-  .sabbi-thumlinepost-card-figure img {
-    transition: transform 0.3s ease;
-  }
-
-  .sabbi-thumlinepost-card:hover .sabbi-thumlinepost-card-figure img {
-    transform: scale(1.05);
-  }
-
-  .overlay {
-    background: rgba(0, 0, 0, 0.4);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .sabbi-thumlinepost-card:hover .overlay {
-    opacity: 1;
-  }
-
-  .meta-title {
-    font-size: 1.1rem;
-    color: #333;
-    margin-bottom: 0.5rem;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-
-  .meta-text {
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.5;
-    max-height: 4.5em;
-  }
-
-  .btn-primary {
-    background-color: #2563eb;
-    border-color: #2563eb;
-    transition: background-color 0.3s ease;
-  }
-
-  .btn-primary:hover {
-    background-color: #1d4ed8;
-    border-color: #1d4ed8;
-  }
-
-  /* Responsive columns handled by Bootstrap (no need for manual media queries) */
-</style>
-
-{{-- News Grid Section --}}
-<style>
+/* Section Layout */
 .news-section-pro {
     background: #f8fafc;
-    padding: 80px 0;
-    position: relative;
+    padding: 80px 20px;
 }
 
+/* Container */
 .news-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
+/* Title */
 .news-title {
-    text-align: center;
-    font-size: 2.5rem;
+    font-family: 'Hanuman', serif;
+    font-size: 2.75rem;
     font-weight: 800;
     color: #1e293b;
+    text-align: center;
     margin-bottom: 3rem;
     position: relative;
 }
-
 .news-title::after {
     content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
+    display: block;
     width: 80px;
     height: 4px;
     background: #2563eb;
-    border-radius: 2px;
+    margin: 10px auto 0;
+    border-radius: 4px;
 }
 
+/* Grid */
 .news-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 2rem;
-    margin-bottom: 2rem;
 }
 
+/* Card */
 .news-card {
-    background: #ffffff;
+    background: #fff;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
-    height: 100%;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
-      border: 2px solid #002855;
+    transition: all 0.3s ease-in-out;
+    border: 1.5px solid #fca311;
 }
-
 .news-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 30px rgba(252, 163, 17, 0.3);
 }
 
+/* Image */
+.image-wrapper {
+    overflow: hidden;
+    height: 220px;
+}
 .news-image {
     width: 100%;
-    height: 220px;
+    height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.4s ease;
 }
-
 .news-card:hover .news-image {
     transform: scale(1.05);
 }
 
+/* Content */
 .news-content {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     flex: 1;
 }
-
 .news-title-text {
-    font-size: 1.25rem;
+    font-family: 'Hanuman', serif;
+    font-size: 1.2rem;
     font-weight: 700;
     color: #1e293b;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     line-height: 1.4;
+    overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    overflow: hidden;
+    -webkit-text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
+
+
 
 .news-meta {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
-    color: #64748b;
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
 }
-
 .news-meta i {
     margin-right: 0.5rem;
     color: #2563eb;
 }
-
 .news-excerpt {
-    color: #475569;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+    font-family: 'Hanuman', serif;
+
+
     overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    -webkit-text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
     flex: 1;
+    margin-bottom: 1.5rem;
+
 }
 
-.news-readmore {
-    margin-top: auto;
-}
-
+/* Button */
 .news-btn {
-     background: #fff;
-            color: #d72638;
-            border: 1.5px solid #d72638;
-            border-radius: 4px;
-            padding: 0.6rem 1.5rem;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.2s;
-            cursor: pointer;
-            text-decoration: none;
+    align-self: start;
+    background-color: transparent;
+    color: #d72638;
+    border: 2px solid #d72638;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
 }
-
 .news-btn:hover {
-   background: #d72638;
-            color: #fff;
-}
-
-@media (max-width: 1024px) {
-    .news-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .news-section-pro {
-        padding: 60px 0;
-    }
-    
-    .news-title {
-        font-size: 2rem;
-    }
-    
-    .news-grid {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-        margin: 0 auto;
-    }
-    
-    .news-image {
-        height: 200px;
-    }
+    background-color: #d72638;
+    color: #fff;
 }
 </style>
-

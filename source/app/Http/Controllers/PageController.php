@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Stephenjude\FilamentBlog\Models\Post;
 use App\Models\Page;
-
+use App\Models\Event;
 
 class PageController extends Controller
 {
@@ -13,7 +13,8 @@ class PageController extends Controller
    public function index()
    {
       $posts = Post::orderBy('id', 'desc')->get();
-      return view('frontend.main', compact('posts'));
+      $events = Event::all();
+      return view('frontend.main', compact('posts','events'));
    }
 
    public function post()

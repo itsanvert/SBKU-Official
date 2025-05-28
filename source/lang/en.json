@@ -40,7 +40,7 @@
     "Scholarships & Grants": "Scholarships & Grants",
     "Contact Us": "Contact Us",
     "General Information": "General Information",
-
+    "Events": "Events",
     "E-mail Log-in": "E-mail Log-in",
     "Alumni": "Alumni",
     "Other": "Other",
@@ -80,10 +80,10 @@
     "Visit Website": "Visit Website",
     "MING CHI UNIVERSITY OF TECHNOLOGY": "MING CHI UNIVERSITY OF TECHNOLOGY",
     "Help University": "Help University",
-  "MALAYSIA": "MALAYSIA",
-"News" : "News",
+    "MALAYSIA": "MALAYSIA",
+    "News": "News",
     "UNIVERSITI TUNKU ABDUL RAHMAN": "UNIVERSITY TUNKU ABDUL RAHMAN",
-  
+
     "NANHUA UNIVERSITY": "NANHUA UNIVERSITY",
     "DHARMA DRUM INSTITUTE OF LIBERAL ARTS": "DHARMA DRUM INSTITUTE OF LIBERAL ARTS",
     "Partner Universities": "Partner Universities",
@@ -134,10 +134,9 @@
     "Slider_7": "Student Meeting and Discussion",
     "Slider_8": "Academic Building",
     "Slider_9": "Computer Laboratory",
-        "Slider_10": "MOU Signing Ceremony between SBKU and Help Univeristy, Malaysia",
+    "Slider_10": "MOU Signing Ceremony between SBKU and Help Univeristy, Malaysia",
     "Slider_11": "MOU Signing Ceremony between SBKU and Jiangsu Shipping College, China ",
     "Slider_12": "Study tour program for undergraduate students in Khmer History and Khmer Literature to Angkor Borei region (Phnom Da) and Chi Sor mountain in Takeo province",
-
 
     "Next": "Next",
     "Previous": "Previous",

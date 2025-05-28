@@ -43,7 +43,7 @@
             'bg-primary-500 text-white' => $active,
         ])
     >
-        <x-dynamic-component
+    <x-heroicon-o-home class="w-6 h-6 text-blue-500"
             :component="($active && $activeIcon) ? $activeIcon : $icon"
             :class="
                 \Illuminate\Support\Arr::toCssClasses([

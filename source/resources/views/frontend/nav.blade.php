@@ -6,7 +6,7 @@
         <div class="navbar-header" style="margin-top:10px;">
           <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
               class="icon-bar"></span> <span class="icon-bar"></span></button>
-          <a class="navbar-brand" href="{{ url('/') }}"><img alt="" class="img-responsive" src="assets/img/site-logo.png" width="400"></a>
+              <img alt="Site Logo" class="img-responsive" src="{{ asset('assets/img/site-logo.png') }}" width="400">
         </div>
         <div class="navbar-collapse collapse sabbi-navbar-collapse  navbar-nav-hov_underline" id="navbar">
           <ul class="nav navbar-nav navbar-right" id="menu-main-nav">

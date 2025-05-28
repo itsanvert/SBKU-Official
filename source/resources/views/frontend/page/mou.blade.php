@@ -1,5 +1,28 @@
-<link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
+    .mou-partners-wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 1.5rem;
+        overflow-x: auto;
+        padding: 1rem 0;
+    }
+
+    .mou-partner-logo {
+        flex: 0 0 auto;
+        width: 180px; /* Adjust as needed */
+        text-align: center;
+    }
+
+    .mou-partner-logo img {
+        max-height: 90px;
+        width: auto;
+        max-width: 100%;
+        margin-bottom: 1rem;
+        filter: grayscale(30%);
+        transition: all 0.5s ease;
+    }
+
+    /* Keep the rest of your existing CSS for hover and typography... */
     .hanuman-regular {
         font-family: "Hanuman", serif;
         font-weight: 400;
@@ -60,11 +83,15 @@
         font-weight: normal;
     }
     .section-title {
-        color: #003366;
-        margin-bottom: 2.5rem;
-        font-weight: bold;
-        position: relative;
-        padding-bottom: 12px;
+        font-family: 'Hanuman', serif;
+    -webkit-text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 3rem;
+    position: relative;
     }
     .section-title:after {
         content: '';
@@ -114,71 +141,73 @@
 
 <section class="mou-section">
     <div class="mou-container">
-        <div class="row align-items-stretch">
-            <div class="col-12 text-center mb-4">
-                <h3 class="section-title hanuman-bold">{{ __('Our Partners') }}</h3>
-                <div class="row justify-content-center">
-                    {{-- Ming Chi University of Technology --}}
-                    <div class="col-6 col-sm-4 col-md-3 mou-partner-logo">
-                        <a href="https://www.mcut.edu.tw/?Lang=en" target="_blank" rel="noopener noreferrer">
-                            <img src="{{ asset('assets/img/mou-university-logo/MCUT.png') }}" alt="MCUT Logo" class="img-fluid">
-                            <p class="hanuman-regular">
-                                <span class="university-name">{{ __('MING CHI UNIVERSITY OF TECHNOLOGY') }}</span><br>
-                                <span class="country-name">{{ __('TAIWAN') }}</span>
-                            </p>
-                        </a>
-                    </div>
-                    {{-- Universiti Tunku Abdul Rahman --}}
-                    <div class="col-6 col-sm-4 col-md-3 mou-partner-logo">
-                        <a href="https://www.utar.edu.my/" target="_blank" rel="noopener noreferrer">
-                            <img src="{{ asset('assets/img/mou-university-logo/UTAR-University-Vector-logoquake.png') }}" alt="UTAR Logo" class="img-fluid">
-                            <p class="hanuman-regular">
-                                <span class="university-name">{{ __('UNIVERSITI TUNKU ABDUL RAHMAN') }}</span><br>
-                                <span class="country-name">{{ __('MALAYSIA') }}</span>
-                            </p>
-                        </a>
-                    </div>
-                    {{-- Nanhua University --}}
-                    <div class="col-6 col-sm-4 col-md-3 mou-partner-logo">
-                        <a href="https://en3.nhu.edu.tw/Web/Index" target="_blank" rel="noopener noreferrer">
-                            <img src="{{ asset('assets/img/mou-university-logo/Nanhua_University_logo.svg_-300x300.png') }}" alt="Nanhua Logo" class="img-fluid">
-                            <p class="hanuman-regular">
-                                <span class="university-name">{{ __('NANHUA UNIVERSITY') }}</span><br>
-                                <span class="country-name">{{ __('TAIWAN') }}</span>
-                            </p>
-                        </a>
-                    </div>
-                    {{-- Dharma Drum Institute of Liberal Arts --}}
-                   <div class="col-6 col-sm-4 col-md-3 mou-partner-logo">
-    <a href="https://www-en.dila.edu.tw/" target="_blank" rel="noopener noreferrer">
-        <img src="{{ asset('assets/img/mou-university-logo/Dharma Drum Institute of Liberal Art.png') }}"
-             alt="DILA Logo" class="img-fluid" style="transform: scale(1.3); max-width: 100%; height: auto;">
-        <p class="hanuman-regular">
-            <span class="university-name">{{ __('DHARMA DRUM INSTITUTE OF LIBERAL ARTS') }}</span><br>
-            <span class="country-name">{{ __('TAIWAN') }}</span>
-        </p>
-    </a>
-</div>
+        <div class="text-center mb-4">
+            <h3 class="section-title hanuman-bold">{{ __('Our Partners') }}</h3>
+            <div class="mou-partners-wrapper">
+                <!-- Partner 1 -->
+                <div class="mou-partner-logo">
+                    <a href="https://www.mcut.edu.tw/?Lang=en" target="_blank" rel="noopener noreferrer">
+                        <img src="{{ asset('assets/img/mou-university-logo/MCUT.png') }}" alt="MCUT Logo">
+                        <p class="hanuman-regular">
+                            <span class="university-name">{{ __('MING CHI UNIVERSITY OF TECHNOLOGY') }}</span><br>
+                            <span class="country-name">{{ __('TAIWAN') }}</span>
+                        </p>
+                    </a>
+                </div>
 
-                   
-                    <div class="col-6 col-sm-4 col-md-3 mou-partner-logo">
-                        <a href="https://www.jssc.edu.cn" target="_blank" rel="noopener noreferrer">
-                            <img src="{{ asset('assets/img/mou-university-logo/JiangSu Shipping College.png') }}" alt="DILA Logo" class="img-fluid">
-                            <p class="hanuman-regular">
-                                <span class="university-name">{{ __('JiangSu Shipping College') }}</span><br>
-                                <span class="country-name">{{ __('Republic of China') }}</span>
-                            </p>
-                        </a>
-                    </div>
-                     <div class="col-6 col-sm-4 col-md-3 mou-partner-logo">
-                        <a href="https://help.edu.my/" target="_blank" rel="noopener noreferrer">
-                            <img src="{{ asset('assets/img/mou-university-logo/help-university-logo.png') }}" alt="DILA Logo" class="img-fluid">
-                            <p class="hanuman-regular">
-                                <span class="university-name">{{ __('Help University') }}</span><br>
-                                <span class="country-name">{{ __('MALAYSIA') }}</span>
-                            </p>
-                        </a>
-                    </div>
+                <!-- Partner 2 -->
+                <div class="mou-partner-logo">
+                    <a href="https://www.utar.edu.my/" target="_blank" rel="noopener noreferrer">
+                        <img src="{{ asset('assets/img/mou-university-logo/UTAR-University-Vector-logoquake.png') }}" alt="UTAR Logo">
+                        <p class="hanuman-regular">
+                            <span class="university-name">{{ __('UNIVERSITI TUNKU ABDUL RAHMAN') }}</span><br>
+                            <span class="country-name">{{ __('MALAYSIA') }}</span>
+                        </p>
+                    </a>
+                </div>
+
+                <!-- Partner 3 -->
+                <div class="mou-partner-logo">
+                    <a href="https://en3.nhu.edu.tw/Web/Index" target="_blank" rel="noopener noreferrer">
+                        <img src="{{ asset('assets/img/mou-university-logo/Nanhua_University_logo.svg_-300x300.png') }}" alt="Nanhua Logo">
+                        <p class="hanuman-regular">
+                            <span class="university-name">{{ __('NANHUA UNIVERSITY') }}</span><br>
+                            <span class="country-name">{{ __('TAIWAN') }}</span>
+                        </p>
+                    </a>
+                </div>
+
+                <!-- Partner 4 -->
+                <div class="mou-partner-logo">
+                    <a href="https://www-en.dila.edu.tw/" target="_blank" rel="noopener noreferrer">
+                        <img src="{{ asset('assets/img/mou-university-logo/Dharma Drum Institute of Liberal Art.png') }}" alt="DILA Logo" style="transform: scale(1.3);">
+                        <p class="hanuman-regular">
+                            <span class="university-name">{{ __('DHARMA DRUM INSTITUTE OF LIBERAL ARTS') }}</span><br>
+                            <span class="country-name">{{ __('TAIWAN') }}</span>
+                        </p>
+                    </a>
+                </div>
+
+                <!-- Partner 5 -->
+                <div class="mou-partner-logo">
+                    <a href="https://www.jssc.edu.cn" target="_blank" rel="noopener noreferrer">
+                        <img src="{{ asset('assets/img/mou-university-logo/JiangSu Shipping College.png') }}" alt="JiangSu Logo">
+                        <p class="hanuman-regular">
+                            <span class="university-name">{{ __('JiangSu Shipping College') }}</span><br>
+                            <span class="country-name">{{ __('Republic of China') }}</span>
+                        </p>
+                    </a>
+                </div>
+
+                <!-- Partner 6 -->
+                <div class="mou-partner-logo">
+                    <a href="https://help.edu.my/" target="_blank" rel="noopener noreferrer">
+                        <img src="{{ asset('assets/img/mou-university-logo/help-university-logo.png') }}" alt="Help Logo">
+                        <p class="hanuman-regular">
+                            <span class="university-name">{{ __('Help University') }}</span><br>
+                            <span class="country-name">{{ __('MALAYSIA') }}</span>
+                        </p>
+                    </a>
                 </div>
             </div>
         </div>

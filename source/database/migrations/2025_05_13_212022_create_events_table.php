@@ -24,7 +24,7 @@ class CreateEventsTable extends Migration
     $table->dateTime('registration_deadline')->nullable();
     $table->json('schedule')->nullable();
     $table->timestamps();
-    $table->date('date'); // Instead of dateTime
+    // $table->date('date'); // Instead of dateTime
 });
     }
 

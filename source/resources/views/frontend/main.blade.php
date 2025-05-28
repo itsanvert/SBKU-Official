@@ -2,6 +2,7 @@
 @include('frontend.nav')
 @include('frontend.slide')
 
+
 <section class="sabbbi-section home-info mt_10">
   <div class="container text-center">
     <img alt="Intro Visual" class="img-fluid" src="{{ asset('assets/img/human.gif') }}">
